@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --color-void: #050807;
+  --color-panel: #0a0f0c;
+  --color-panel-raised: #0e1511;
+  --color-line: #1c2f24;
+  --color-line-bright: #2e5240;
+
+  --color-phosphor: #4ade80;
+  --color-phosphor-bright: #7dffa8;
+  --color-phosphor-dim: #2f7a4d;
+  --color-mint-muted: #9fb8a8;
+  --color-fog: #6b8574;
+  --color-amber: #fbbf24;
+  --color-amber-soft: #fcd34d;
+  --color-danger: #f87171;
+  --color-paper: #e8f3ec;
+
+  --shadow-glow-sm: 0 0 12px rgba(74, 222, 128, 0.12);
+  --shadow-glow-md: 0 0 24px rgba(74, 222, 128, 0.18);
+  --shadow-glow-lg: 0 0 48px rgba(74, 222, 128, 0.22);
+  --shadow-amber-glow: 0 0 20px rgba(251, 191, 36, 0.18);
+}
+
+:root {
+  --scanline-opacity: 0.05;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base element styles live in the base layer so Tailwind utilities
+   (e.g. text-void on solid buttons) can override them. */
+@layer base {
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-void);
+    color: var(--color-paper);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Subtle scanline + grid texture layered over the page background */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(74, 222, 128, var(--scanline-opacity)) 0px,
+        rgba(74, 222, 128, var(--scanline-opacity)) 1px,
+        transparent 1px,
+        transparent 4px
+      ),
+      linear-gradient(rgba(74, 222, 128, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 222, 128, 0.03) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      48px 48px,
+      48px 48px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-paper);
+  }
+
+  code,
+  kbd,
+  pre {
+    font-family: var(--font-mono);
+  }
+
+  a {
+    color: var(--color-phosphor);
+    text-decoration-color: rgba(74, 222, 128, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    color: var(--color-phosphor-bright);
+    text-decoration-color: currentColor;
+  }
+}
+
+::selection {
+  background: rgba(74, 222, 128, 0.28);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Blinking block cursor used in the wordmark and hero prompt */
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.blink-cursor {
+  display: inline-block;
+  width: 0.62em;
+  height: 1.1em;
+  margin-left: 0.15em;
+  vertical-align: text-bottom;
+  background-color: var(--color-phosphor);
+  box-shadow: var(--shadow-glow-md);
+  animation: cursor-blink 1.1s steps(1) infinite;
+}
+
+/* Typed-prompt reveal in the hero */
+@keyframes typed-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.typed-line {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typed-reveal 1.6s steps(28, end) both;
+}
+
+@media (max-width: 640px) {
+  .typed-line {
+    white-space: normal;
+  }
+}
+
+/* Card hover glow */
+.glow-card {
+  border: 1px solid var(--color-line);
+  background-color: var(--color-panel);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.glow-card:hover,
+.glow-card:focus-within {
+  border-color: var(--color-line-bright);
+  box-shadow: var(--shadow-glow-md);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .blink-cursor,
+  .typed-line {
+    animation: none;
+  }
+
+  .glow-card,
+  .glow-card:hover,
+  .glow-card:focus-within {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ASCII-flavoured section divider */
+.ascii-divider {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--color-phosphor-dim);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  user-select: none;
+}
+

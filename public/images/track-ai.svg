@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="title">
+  <title id="title">AI track artwork</title>
+  <rect width="800" height="500" fill="#0a0f0c"/>
+  <g stroke="#4ade80" stroke-width="3" fill="none">
+    <circle cx="180" cy="150" r="26"/>
+    <circle cx="180" cy="260" r="26"/>
+    <circle cx="180" cy="370" r="26"/>
+    <circle cx="400" cy="205" r="26"/>
+    <circle cx="400" cy="315" r="26"/>
+    <circle cx="620" cy="260" r="30" stroke="#fbbf24"/>
+    <line x1="206" y1="150" x2="374" y2="205"/>
+    <line x1="206" y1="260" x2="374" y2="205"/>
+    <line x1="206" y1="260" x2="374" y2="315"/>
+    <line x1="206" y1="370" x2="374" y2="315"/>
+    <line x1="426" y1="205" x2="590" y2="260"/>
+    <line x1="426" y1="315" x2="590" y2="260"/>
+  </g>
+  <circle cx="620" cy="260" r="8" fill="#fbbf24"/>
+  <text x="40" y="462" font-family="monospace" font-size="18" fill="#6b8574">$ train</text>
+</svg>
