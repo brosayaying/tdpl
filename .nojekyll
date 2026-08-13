@@ -1,0 +1,2 @@
+# Disable Jekyll processing on GitHub Pages so hashed asset paths and
+# underscore-prefixed files are served as-is.

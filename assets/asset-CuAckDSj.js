@@ -1,0 +1,1 @@
+function e(e){return`${`/tdpl/`.replace(/\/$/,``)}${e.startsWith(`/`)?e:`/${e}`}`}export{e as t};
