@@ -1,7 +1,7 @@
 export const site = {
   name: "The Don't Panic Lab",
   tagline: 'A kids\u2019 coding academy for curious builders.',
-  contactEmail: 'hello@dontpaniclab.example',
+  contactEmail: 'hello@thedontpaniclab.org',
 } as const
 
 export const navLinks = [
