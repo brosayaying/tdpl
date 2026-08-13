@@ -8,11 +8,11 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 /**
- * Public base path the site is served from. Defaults to the GitHub
- * project-page shape (`/<repo>/`); set `BASE_PATH=/` for a user/org page
- * or a custom domain. Must start and end with a slash.
+ * Public base path the site is served from. `/` because the site is served
+ * from the custom domain root (thedontpaniclab.org). For a GitHub project
+ * page instead, set BASE_PATH to `/<repo>/`. Must start and end with a slash.
  */
-const basePath = process.env.BASE_PATH ?? '/tdpl/'
+const basePath = process.env.BASE_PATH ?? '/'
 
 const config = defineConfig({
   base: basePath,

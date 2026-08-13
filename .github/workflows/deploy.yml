@@ -34,9 +34,9 @@ jobs:
       - name: Build (prerendered static site)
         run: pnpm build
         env:
-          # Project-page base path. Change to `/` if serving from a user/org
-          # page or a custom domain.
-          BASE_PATH: /tdpl/
+          # Custom domain (thedontpaniclab.org) serves from the domain root.
+          # For a GitHub project page instead, set this to `/<repo>/`.
+          BASE_PATH: /
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
