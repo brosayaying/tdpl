@@ -43,8 +43,8 @@ function Home() {
             <span className="blink-cursor" aria-hidden="true" />
           </p>
           <h1 className="max-w-3xl text-4xl leading-tight sm:text-5xl lg:text-6xl">
-            Kids who code calmly{' '}
-            <span className="text-phosphor">out-build</span> the future.
+            Kids who code <span className="text-phosphor">out-build</span> the
+            future.
           </h1>
           <p className="mt-6 max-w-2xl text-base text-mint-muted sm:text-lg">
             {site.tagline} Small classes, real projects, and four tracks —
