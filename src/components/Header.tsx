@@ -20,6 +20,13 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="flex items-center gap-1 sm:gap-2">
+          <Link
+            to="/"
+            className="px-2 py-1.5 text-xs no-underline text-mint-muted transition-colors hover:text-phosphor-bright sm:px-3 sm:text-sm [&.active]:text-phosphor"
+            activeProps={{ className: 'active' }}
+          >
+            Home
+          </Link>
           {navLinks.map((link) => (
             <Link
               key={link.to}
