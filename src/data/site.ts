@@ -2,12 +2,53 @@ export const site = {
   name: "The Don't Panic Lab",
   tagline: 'A kids\u2019 coding academy for curious builders.',
   contactEmail: 'hello@thedontpaniclab.org',
+  /** Canonical origin, used for absolute URLs in social metadata. */
+  url: 'https://thedontpaniclab.org',
 } as const
 
 export const navLinks = [
   { to: '/schedule', label: 'Schedule' },
   { to: '/about', label: 'About Us' },
 ] as const
+
+/**
+ * Current term. South Australian state school Term 4 runs 12 Oct – 11 Dec 2026;
+ * our courses are 8 weeks, starting the week of 19 Oct 2026.
+ */
+export const term = {
+  number: 4,
+  label: 'Term 4',
+  weeks: 8,
+  /** First day of our 8-week block. */
+  startsOn: '2026-10-19',
+  /** Last day of our 8-week block. */
+  endsOn: '2026-12-10',
+  /** SA state school term dates, for context. */
+  schoolTermStartsOn: '2026-10-12',
+  schoolTermEndsOn: '2026-12-11',
+  /** Price per course for the full 8-week block, in AUD. */
+  priceAud: 200,
+} as const
+
+/** Format an ISO date (YYYY-MM-DD) as e.g. "Thursday 22 October 2026". */
+export function formatDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-AU', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+}
+
+/** Format an ISO date as e.g. "22 Oct". */
+export function formatShortDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-AU', {
+    day: 'numeric',
+    month: 'short',
+    timeZone: 'UTC',
+  })
+}
 
 export type Track = {
   id: string
@@ -84,10 +125,14 @@ export type ScheduleRow = {
   ageRange: string
   duration: string
   format: string
-  /** Stripe Payment Link used by the "Buy" button. */
+  /** Stripe Payment Link used by the booking button. */
   paymentLink: string
   /** True while the timetable for this course is still being confirmed. */
   tentative?: boolean
+  /** First session date (ISO), when known. */
+  firstSession?: string
+  /** Last session date (ISO), when known. */
+  lastSession?: string
 }
 
 /** Courses running this term. */
@@ -100,13 +145,15 @@ export const scheduleRows: ScheduleRow[] = [
     duration: '60 min',
     format: 'In-person',
     paymentLink: 'https://buy.stripe.com/14A28saSZfUpfvW6Sj7g401',
+    firstSession: '2026-10-22',
+    lastSession: '2026-12-10',
   },
   {
     course: 'Python Foundations',
     day: 'TBC',
     time: 'TBC',
     ageRange: 'Ages 9\u201312',
-    duration: 'TBC',
+    duration: '75 min',
     format: 'In-person or online',
     paymentLink: 'https://buy.stripe.com/14A3cwf9f0Zv0B25Of7g402',
     tentative: true,

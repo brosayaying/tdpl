@@ -21,6 +21,14 @@ export const Route = createFileRoute('/')({
         content:
           'Scratch, Python, AI, and Robotics classes for kids aged 6–13. Try a class, pick a track, build and ship real projects.',
       },
+      { property: 'og:image', content: `${site.url}/images/og-default.png` },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: `${site.name} — kids' coding academy` },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: `${site.url}/` },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${site.url}/images/og-default.png` },
     ],
   }),
   component: Home,
@@ -96,6 +104,7 @@ function Home() {
             kicker="ls ./tracks"
             title="What we teach"
             description="Four tracks, one goal: kids who can think in systems and build things that work. Scratch and Python are open for enrolment this term."
+            id="tracks-heading"
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {tracks.map((track) => (
@@ -112,6 +121,7 @@ function Home() {
             kicker="cat ./why-coding-still-matters.md"
             title="Why coding still matters"
             description="“AI writes code now — why should my child learn it?” Fair question. History has answered it before."
+            id="why-heading"
           />
           <div className="grid gap-5 lg:grid-cols-2">
             <article className="glow-card rounded-sm p-6 sm:p-8">
@@ -160,6 +170,7 @@ function Home() {
             kicker="man getting-started"
             title="How it works"
             description="Three steps from curious to shipping."
+            id="how-heading"
           />
           <ol className="grid gap-5 md:grid-cols-3">
             {steps.map((step) => (
@@ -182,6 +193,7 @@ function Home() {
             kicker="ls ./student-projects --shipped"
             title="Proof, not promises"
             description="A few things our students have actually built and demoed."
+            id="projects-heading"
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {projects.map((project) => (
@@ -209,6 +221,7 @@ function Home() {
             kicker="./register --interest"
             title="Register interest"
             description="Tell us a little about your future builder and we’ll get back to you with taster-class options. No commitment, no spam."
+            id="register-heading"
           />
           <TerminalWindow title="interest-form — interactive">
             <InterestForm />

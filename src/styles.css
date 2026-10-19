@@ -12,7 +12,9 @@
 
   --color-phosphor: #4ade80;
   --color-phosphor-bright: #7dffa8;
-  --color-phosphor-dim: #2f7a4d;
+  /* Dim green for kickers and secondary accents. Lightened from #2f7a4d so it
+     clears WCAG AA (4.5:1) on void, panel, and panel-raised backgrounds. */
+  --color-phosphor-dim: #3a9660;
   --color-mint-muted: #9fb8a8;
   --color-fog: #6b8574;
   --color-amber: #fbbf24;

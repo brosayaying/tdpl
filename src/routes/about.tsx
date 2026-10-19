@@ -18,6 +18,14 @@ export const Route = createFileRoute('/about')({
         content:
           'Why we teach coding in the age of AI, who teaches it, and how we keep classes small, safe, and fun.',
       },
+      { property: 'og:image', content: `${site.url}/images/og-default.png` },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: `${site.name} — about us` },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: `${site.url}/about` },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${site.url}/images/og-default.png` },
     ],
   }),
   component: About,
@@ -28,6 +36,7 @@ function About() {
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
       {/* Story */}
       <SectionHeading
+        as="h1"
         kicker="cat ./origin-story.txt"
         title="Don&rsquo;t panic. Build something."
         description="The lab started with a simple observation: the kids who thrive with technology aren’t the ones who consume the most of it — they’re the ones who understand it."
@@ -63,6 +72,7 @@ function About() {
         <SectionHeading
           kicker="cat ./philosophy.md"
           title="How we teach"
+          id="philosophy-heading"
         />
         <div className="grid gap-5 md:grid-cols-3">
           <article className="glow-card rounded-sm p-6">
@@ -97,6 +107,7 @@ function About() {
           kicker="whoami --all"
           title="The instructors"
           description="The people (and one lab monster) who keep the lab calm, curious, and building."
+          id="instructors-heading"
         />
         <div className="grid gap-5 md:grid-cols-3">
           {instructors.map((instructor) => (
@@ -111,7 +122,11 @@ function About() {
 
       {/* Safety */}
       <section className="mt-20" aria-labelledby="safety-heading">
-        <SectionHeading kicker="./safety --check" title="Safe and sound" />
+        <SectionHeading
+          kicker="./safety --check"
+          title="Safe and sound"
+          id="safety-heading"
+        />
         <div className="glow-card rounded-sm p-6 sm:p-8">
           <ul className="grid gap-4 text-sm text-mint-muted sm:grid-cols-2">
             <li className="flex gap-3">
