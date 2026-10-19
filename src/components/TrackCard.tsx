@@ -30,6 +30,23 @@ export function TrackCard({ track }: TrackCardProps) {
           </span>
           {track.outcome}
         </p>
+        <div className="mt-4">
+          {track.paymentLink ? (
+            <a
+              href={track.paymentLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-sm border border-phosphor bg-phosphor px-3 py-1.5 text-xs font-bold text-void no-underline transition-all hover:bg-phosphor-bright hover:shadow-glow-md"
+              aria-label={`Buy a place on the ${track.name} track (opens Stripe checkout in a new tab)`}
+            >
+              <span aria-hidden="true">&gt;</span> Buy place
+            </a>
+          ) : (
+            <p className="text-xs text-fog">
+              Not running this term &mdash; register interest for the next one.
+            </p>
+          )}
+        </div>
       </div>
     </article>
   )

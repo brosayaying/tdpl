@@ -18,6 +18,10 @@ export type Track = {
   blurb: string
   image: string
   imageAlt: string
+  /** Whether this track is open for enrolment in the current term. */
+  offeredThisTerm: boolean
+  /** Stripe Payment Link, present only for tracks open this term. */
+  paymentLink?: string
 }
 
 export const tracks: Track[] = [
@@ -31,6 +35,8 @@ export const tracks: Track[] = [
       'Drag-and-drop blocks, instant feedback, and big creative wins. The perfect first contact with loops, events, and logic.',
     image: '/images/track-scratch.svg',
     imageAlt: 'Stylised terminal artwork for the Scratch track',
+    offeredThisTerm: true,
+    paymentLink: 'https://buy.stripe.com/14A28saSZfUpfvW6Sj7g401',
   },
   {
     id: 'python',
@@ -42,6 +48,8 @@ export const tracks: Track[] = [
       'Real syntax, real problem solving. Kids learn variables, functions, and how to debug like professionals.',
     image: '/images/track-python.svg',
     imageAlt: 'Stylised terminal artwork for the Python track',
+    offeredThisTerm: true,
+    paymentLink: 'https://buy.stripe.com/14A3cwf9f0Zv0B25Of7g402',
   },
   {
     id: 'ai',
@@ -53,6 +61,7 @@ export const tracks: Track[] = [
       'From teaching a model to recognise drawings to prompting with intent — kids learn to direct intelligent tools, not just consume them.',
     image: '/images/track-ai.svg',
     imageAlt: 'Stylised terminal artwork for the AI track',
+    offeredThisTerm: false,
   },
   {
     id: 'robotics',
@@ -64,6 +73,7 @@ export const tracks: Track[] = [
       'Code that moves. Sensors, motors, and friendly competitions make abstract logic physical and unforgettable.',
     image: '/images/track-robotics.svg',
     imageAlt: 'Stylised terminal artwork for the Robotics track',
+    offeredThisTerm: false,
   },
 ]
 
@@ -74,41 +84,32 @@ export type ScheduleRow = {
   ageRange: string
   duration: string
   format: string
+  /** Stripe Payment Link used by the "Buy" button. */
+  paymentLink: string
+  /** True while the timetable for this course is still being confirmed. */
+  tentative?: boolean
 }
 
-/** All details below are placeholders until the term timetable is finalised. */
+/** Courses running this term. */
 export const scheduleRows: ScheduleRow[] = [
   {
     course: 'Scratch Explorers',
-    day: 'Saturdays',
-    time: '09:30 \u2013 10:30',
+    day: 'Thursdays',
+    time: '19:30 \u2013 20:30',
     ageRange: 'Ages 6\u20139',
     duration: '60 min',
-    format: 'In-person, small class',
+    format: 'In-person',
+    paymentLink: 'https://buy.stripe.com/14A28saSZfUpfvW6Sj7g401',
   },
   {
     course: 'Python Foundations',
-    day: 'Saturdays',
-    time: '11:00 \u2013 12:15',
+    day: 'TBC',
+    time: 'TBC',
     ageRange: 'Ages 9\u201312',
-    duration: '75 min',
-    format: 'In-person, small class',
-  },
-  {
-    course: 'AI Builders',
-    day: 'Wednesdays',
-    time: '17:00 \u2013 18:15',
-    ageRange: 'Ages 10\u201313',
-    duration: '75 min',
-    format: 'Hybrid (in-person + remote)',
-  },
-  {
-    course: 'Robotics Club',
-    day: 'Thursdays',
-    time: '16:30 \u2013 18:00',
-    ageRange: 'Ages 8\u201312',
-    duration: '90 min',
-    format: 'In-person, kit provided',
+    duration: 'TBC',
+    format: 'In-person or online',
+    paymentLink: 'https://buy.stripe.com/14A3cwf9f0Zv0B25Of7g402',
+    tentative: true,
   },
 ]
 
@@ -185,7 +186,7 @@ export const steps = [
     number: '02',
     title: 'Pick a track',
     description:
-      'Scratch, Python, AI, or Robotics. We help you choose based on age, interest, and confidence.',
+      'Scratch or Python this term, with AI and Robotics returning later. We help you choose based on age, interest, and confidence.',
   },
   {
     number: '03',

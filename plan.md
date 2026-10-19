@@ -13,12 +13,12 @@ A playful-but-professional multi-page site for a kids' coding academy, styled li
   - Student projects / proof strip: playful project cards.
   - Register interest form (see below).
   - Footer with contact line and nav repeat.
-- **/schedule** — Placeholder term schedule: table/cards of courses (Scratch Explorers, Python Foundations, AI Builders, Robotics Club) with day, time, age range, duration, and format; note that details are placeholders. CTA to the interest form.
+- **/schedule** — Current term schedule: table/cards for the two courses running this term — Scratch Explorers (Thursdays, 19:30–20:30, in-person) and Python Foundations (day/time TBC, in-person or online) — with age range, duration, format, and a **Buy place** button linking to the course's Stripe Payment Link. CTA to the interest form for anyone unsure.
 - **/about** — Story, teaching philosophy (short, echoing the motivation theme), instructor bios (placeholder), safety/small-class notes, CTA.
 
 ## Register interest form
 
-Fields: parent name, email, child age, course interest (select: Scratch / Python / AI / Robotics / Not sure), plus an optional message.
+Fields: parent name, email, child age, course interest (select: Scratch / Python / Not sure — only the courses offered this term), plus an optional message.
 
 Submission goes to an **external form service** (Formspree by default). Validation with Zod client-side: trimmed, required name, valid email, age 6–18, course from the allowed list, message max 1000 chars. Success and error states shown inline as terminal-style output lines, with a spinner-ish "sending..." state.
 

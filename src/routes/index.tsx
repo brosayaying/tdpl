@@ -49,15 +49,15 @@ function Home() {
           <p className="mt-6 max-w-2xl text-base text-mint-muted sm:text-lg">
             {site.tagline} Small classes, real projects, and four tracks —
             Scratch, Python, AI, and Robotics — taught by people who ship code
-            for a living.
+            for a living. This term we&rsquo;re running Scratch and Python.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#register" className={ctaPrimary}>
-              <span aria-hidden="true">&gt;</span> Register interest
-            </a>
-            <Link to="/schedule" className={ctaSecondary}>
-              See the schedule
+            <Link to="/schedule" className={ctaPrimary}>
+              <span aria-hidden="true">&gt;</span> Book a place
             </Link>
+            <a href="#register" className={ctaSecondary}>
+              Register interest
+            </a>
           </div>
         </TerminalWindow>
 
@@ -78,7 +78,7 @@ function Home() {
           <SectionHeading
             kicker="ls ./tracks"
             title="What we teach"
-            description="Four tracks, one goal: kids who can think in systems and build things that work."
+            description="Four tracks, one goal: kids who can think in systems and build things that work. Scratch and Python are open for enrolment this term."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {tracks.map((track) => (

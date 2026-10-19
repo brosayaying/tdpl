@@ -68,7 +68,7 @@ describe('validateInterestForm', () => {
     }
   })
 
-  it('only allows the five course options', () => {
+  it('only allows the courses offered this term', () => {
     const invalid = validateInterestForm({ ...validInput, course: 'COBOL' })
     expect(invalid.success).toBe(false)
     if (!invalid.success) expect(invalid.errors.course).toBeTruthy()
@@ -76,9 +76,14 @@ describe('validateInterestForm', () => {
     const empty = validateInterestForm({ ...validInput, course: '' })
     expect(empty.success).toBe(false)
 
-    for (const course of ['Scratch', 'Python', 'AI', 'Robotics', 'Not sure']) {
+    for (const course of ['Scratch', 'Python', 'Not sure']) {
       const result = validateInterestForm({ ...validInput, course })
       expect(result.success).toBe(true)
+    }
+
+    for (const course of ['AI', 'Robotics']) {
+      const result = validateInterestForm({ ...validInput, course })
+      expect(result.success).toBe(false)
     }
   })
 
