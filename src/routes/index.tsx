@@ -34,6 +34,23 @@ const ctaSecondary =
 function Home() {
   return (
     <>
+      {/* ── Term banner ──────────────────────────────────── */}
+      <Link
+        to="/schedule"
+        className="group block border-b border-amber/40 bg-amber/10 text-amber no-underline transition-colors hover:bg-amber/15 hover:text-amber-soft"
+      >
+        <p className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4 py-3 text-center text-sm font-bold sm:px-6">
+          <span aria-hidden="true">&gt;</span>
+          Register now for Term 4
+          <span
+            aria-hidden="true"
+            className="transition-transform group-hover:translate-x-1"
+          >
+            &rarr;
+          </span>
+        </p>
+      </Link>
+
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6 sm:pt-20">
         <TerminalWindow title="guest@dontpaniclab: ~/future" className="shadow-glow-lg">
