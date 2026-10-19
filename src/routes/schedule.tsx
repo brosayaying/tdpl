@@ -3,6 +3,7 @@ import { SectionHeading } from '../components/SectionHeading'
 import {
   formatShortDate,
   scheduleRows,
+  siblingPriceAud,
   site,
   term,
 } from '../data/site'
@@ -88,6 +89,9 @@ function Schedule() {
           </dd>
           <dd className="text-sm text-mint-muted">
             per course, for all {term.weeks} weeks
+          </dd>
+          <dd className="mt-1 text-sm text-phosphor">
+            ${siblingPriceAud} for each sibling
           </dd>
         </div>
         <div className="glow-card rounded-sm p-4">
@@ -227,6 +231,18 @@ function Schedule() {
         Booking is handled securely by Stripe. Places are limited by our small
         class sizes, so we recommend booking early.
       </p>
+
+      <div className="mt-4 rounded-sm border border-phosphor/30 bg-phosphor/5 px-4 py-3 text-sm text-mint-muted">
+        <span className="text-phosphor" aria-hidden="true">
+          &#10003;{' '}
+        </span>
+        <strong className="text-paper">Sibling discount:</strong>{' '}
+        {term.siblingDiscountPercent}% off for each additional sibling enrolled
+        in the same term &mdash; ${siblingPriceAud} instead of ${term.priceAud}{' '}
+        per course. Book the first child at full price, then email us at{' '}
+        <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a> for a
+        discount code.
+      </div>
 
       <div className="mt-12 text-center">
         <Link

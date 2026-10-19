@@ -28,7 +28,14 @@ export const term = {
   schoolTermEndsOn: '2026-12-11',
   /** Price per course for the full 8-week block, in AUD. */
   priceAud: 200,
+  /** Discount for each additional sibling enrolled in the same term. */
+  siblingDiscountPercent: 25,
 } as const
+
+/** Price for an additional sibling, after the sibling discount. */
+export const siblingPriceAud = Math.round(
+  term.priceAud * (1 - term.siblingDiscountPercent / 100),
+)
 
 /** Format an ISO date (YYYY-MM-DD) as e.g. "Thursday 22 October 2026". */
 export function formatDate(iso: string): string {

@@ -7,15 +7,23 @@ type TrackCardProps = {
 
 /** A course/track card with terminal command header and hover glow. */
 export function TrackCard({ track }: TrackCardProps) {
+  const offered = track.offeredThisTerm
+
   return (
-    <article className="glow-card flex flex-col overflow-hidden rounded-sm">
+    <article
+      className={`glow-card flex flex-col overflow-hidden rounded-sm ${
+        offered ? '' : 'bg-void/40'
+      }`}
+    >
       <img
         src={assetUrl(track.image)}
         alt={track.imageAlt}
         width={800}
         height={500}
         loading="lazy"
-        className="aspect-8/5 w-full border-b border-line object-cover"
+        className={`aspect-8/5 w-full border-b border-line object-cover ${
+          offered ? '' : 'opacity-40 grayscale'
+        }`}
       />
       <div className="flex flex-1 flex-col p-6">
         <p className="mb-4 text-sm text-phosphor-dim" aria-hidden="true">
@@ -36,14 +44,14 @@ export function TrackCard({ track }: TrackCardProps) {
               href={track.paymentLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-sm border border-phosphor bg-phosphor px-3 py-1.5 text-xs font-bold text-void no-underline transition-all hover:bg-phosphor-bright hover:shadow-glow-md"
+              className="inline-flex items-center gap-1.5 rounded-sm border border-phosphor bg-phosphor px-3 py-2 text-xs font-bold text-void no-underline transition-all hover:bg-phosphor-bright hover:shadow-glow-md"
               aria-label={`Buy a place on the ${track.name} track (opens Stripe checkout in a new tab)`}
             >
               <span aria-hidden="true">&gt;</span> Buy place
             </a>
           ) : (
-            <p className="text-xs text-fog">
-              Not running this term &mdash; register interest for the next one.
+            <p className="inline-flex items-center gap-1.5 rounded-sm border border-line-bright px-3 py-2 text-xs font-bold text-fog">
+              <span aria-hidden="true">&gt;</span> Returning later
             </p>
           )}
         </div>
