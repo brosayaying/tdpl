@@ -30,6 +30,7 @@ export const Route = createFileRoute('/')({
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${site.url}/images/og-default.png` },
     ],
+    links: [{ rel: 'canonical', href: `${site.url}/` }],
   }),
   component: Home,
 })
@@ -52,7 +53,7 @@ function Home() {
           Register now for Term 4
           <span
             aria-hidden="true"
-            className="transition-transform group-hover:translate-x-1"
+            className="transition-transform group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
           >
             &rarr;
           </span>
@@ -61,40 +62,46 @@ function Home() {
 
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6 sm:pt-20">
-        <TerminalWindow title="guest@dontpaniclab: ~/future" className="shadow-glow-lg">
-          <p className="typed-line mb-6 text-sm text-phosphor sm:text-base">
-            <span className="text-fog">guest@dontpaniclab</span>
-            <span className="text-fog">:~$</span> ./start_adventure --age 6-13
-            <span className="blink-cursor" aria-hidden="true" />
-          </p>
-          <h1 className="max-w-3xl text-4xl leading-tight sm:text-5xl lg:text-6xl">
-            Kids who code <span className="text-phosphor">out-build</span> the
-            future.
-          </h1>
-          <p className="mt-6 max-w-2xl text-base text-mint-muted sm:text-lg">
-            {site.tagline} Small classes, real projects, and four tracks —
-            Scratch, Python, AI, and Robotics — taught by people who ship code
-            for a living. This term we&rsquo;re running Scratch and Python.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link to="/schedule" className={ctaPrimary}>
-              <span aria-hidden="true">&gt;</span> Book a place
-            </Link>
-            <a href="#register" className={ctaSecondary}>
-              Register interest
-            </a>
-          </div>
-        </TerminalWindow>
+        <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+          <TerminalWindow
+            title="guest@dontpaniclab: ~/future"
+            className="shadow-glow-lg"
+          >
+            <p className="typed-line mb-6 text-sm text-phosphor sm:text-base">
+              <span className="text-fog">guest@dontpaniclab</span>
+              <span className="text-fog">:~$</span> ./start_adventure --age 6-13
+              <span className="blink-cursor" aria-hidden="true" />
+            </p>
+            <h1 className="text-4xl leading-tight sm:text-5xl">
+              Kids who code{' '}
+              <span className="whitespace-nowrap text-phosphor">out-build</span>{' '}
+              the future.
+            </h1>
+            <p className="mt-6 text-base text-mint-muted sm:text-lg">
+              {site.tagline} Small classes, real projects, and four tracks —
+              Scratch, Python, AI, and Robotics — taught by people who ship code
+              for a living. This term we&rsquo;re running Scratch and Python.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link to="/schedule" className={ctaPrimary}>
+                <span aria-hidden="true">&gt;</span> Book a place
+              </Link>
+              <a href="#register" className={ctaSecondary}>
+                Register interest
+              </a>
+            </div>
+          </TerminalWindow>
 
-        <figure className="mt-10">
-          <img
-            src={assetUrl('/images/hero-workbench.svg')}
-            alt="Illustration of children at a glowing workbench with small robots and a laptop, in green terminal style"
-            width={1200}
-            height={800}
-            className="w-full rounded-sm border border-line object-cover shadow-glow-sm"
-          />
-        </figure>
+          <figure>
+            <img
+              src={assetUrl('/images/hero-workbench.svg')}
+              alt="Illustration of children at a glowing workbench with small robots and a laptop, in green terminal style"
+              width={1200}
+              height={800}
+              className="w-full rounded-sm border border-line object-cover shadow-glow-sm"
+            />
+          </figure>
+        </div>
       </section>
 
       {/* ── What we teach ────────────────────────────────── */}

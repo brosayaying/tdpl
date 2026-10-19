@@ -6,7 +6,7 @@ const validInput: InterestFormInput = {
   parentName: 'Ada Lovelace',
   email: 'ada@example.com',
   childAge: '9',
-  course: 'Python',
+  course: 'Python Foundations',
   message: 'Looking forward to it!',
 }
 
@@ -76,12 +76,12 @@ describe('validateInterestForm', () => {
     const empty = validateInterestForm({ ...validInput, course: '' })
     expect(empty.success).toBe(false)
 
-    for (const course of ['Scratch', 'Python', 'Not sure']) {
+    for (const course of ['Scratch Explorers', 'Python Foundations', 'Not sure']) {
       const result = validateInterestForm({ ...validInput, course })
       expect(result.success).toBe(true)
     }
 
-    for (const course of ['AI', 'Robotics']) {
+    for (const course of ['AI Builders', 'Robotics Club']) {
       const result = validateInterestForm({ ...validInput, course })
       expect(result.success).toBe(false)
     }

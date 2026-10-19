@@ -27,6 +27,13 @@ const config = defineConfig({
         autoSubfolderIndex: true,
         crawlLinks: true,
       },
+      pages: [
+        {
+          path: '/404',
+          // GitHub Pages serves 404.html for unknown paths.
+          prerender: { outputPath: '/404.html' },
+        },
+      ],
     }),
     viteReact(),
   ],

@@ -27,6 +27,7 @@ export const Route = createFileRoute('/about')({
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${site.url}/images/og-default.png` },
     ],
+    links: [{ rel: 'canonical', href: `${site.url}/about` }],
   }),
   component: About,
 })

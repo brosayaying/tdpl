@@ -1,6 +1,10 @@
 import { z } from 'zod'
 
-export const COURSE_OPTIONS = ['Scratch', 'Python', 'Not sure'] as const
+export const COURSE_OPTIONS = [
+  'Scratch Explorers',
+  'Python Foundations',
+  'Not sure',
+] as const
 
 export type CourseOption = (typeof COURSE_OPTIONS)[number]
 

@@ -29,6 +29,7 @@ export const Route = createFileRoute('/schedule')({
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: `${site.url}/images/og-default.png` },
     ],
+    links: [{ rel: 'canonical', href: `${site.url}/schedule` }],
   }),
   component: Schedule,
 })

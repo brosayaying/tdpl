@@ -22,7 +22,7 @@ function fillValidForm() {
     target: { value: '9' },
   })
   fireEvent.change(screen.getByLabelText(/course interest/i), {
-    target: { value: 'Python' },
+    target: { value: 'Python Foundations' },
   })
 }
 
@@ -89,7 +89,7 @@ describe('InterestForm', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /send --interest/i }))
 
-    expect(await screen.findByText(/OK 200/i)).toBeTruthy()
+    expect(await screen.findByText(/thanks! we.ll reply/i)).toBeTruthy()
     expect(fetchSpy).toHaveBeenCalledTimes(1)
     const [url, init] = fetchSpy.mock.calls[0] as [string, RequestInit]
     expect(url).toBe('https://api.web3forms.com/submit')
@@ -99,7 +99,7 @@ describe('InterestForm', () => {
       parent_name: 'Ada Lovelace',
       email: 'ada@example.com',
       child_age: 9,
-      course_interest: 'Python',
+      course_interest: 'Python Foundations',
       message: 'See you at the taster.',
     })
   })

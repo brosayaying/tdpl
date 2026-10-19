@@ -271,8 +271,8 @@ export function InterestForm() {
         ) : null}
         {status.kind === 'success' ? (
           <p className="text-phosphor">
-            <span aria-hidden="true">$ </span>OK 200 — thanks! We&rsquo;ll reply
-            within a couple of days with taster class options.
+            <span aria-hidden="true">$ </span>Thanks! We&rsquo;ll reply within a
+            couple of days with taster class options.
           </p>
         ) : null}
         {status.kind === 'unconfigured' ? (

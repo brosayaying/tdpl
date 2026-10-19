@@ -68,7 +68,7 @@ export type Track = {
 export const tracks: Track[] = [
   {
     id: 'scratch',
-    name: 'Scratch',
+    name: 'Scratch Explorers',
     command: 'run scratch.exe',
     ageRange: 'Ages 6\u20139',
     outcome: 'Builds animated stories and games they can demo to the family.',
@@ -81,7 +81,7 @@ export const tracks: Track[] = [
   },
   {
     id: 'python',
-    name: 'Python',
+    name: 'Python Foundations',
     command: 'python main.py',
     ageRange: 'Ages 9\u201312',
     outcome: 'Writes real text-based programs and small tools from scratch.',
@@ -94,7 +94,7 @@ export const tracks: Track[] = [
   },
   {
     id: 'ai',
-    name: 'AI',
+    name: 'AI Builders',
     command: 'train --model curious',
     ageRange: 'Ages 10\u201313',
     outcome: 'Trains simple models and learns to question what AI tells them.',
@@ -106,7 +106,7 @@ export const tracks: Track[] = [
   },
   {
     id: 'robotics',
-    name: 'Robotics',
+    name: 'Robotics Club',
     command: 'deploy robot_v2.bin',
     ageRange: 'Ages 8\u201312',
     outcome: 'Programs robots that navigate, sense, and react to the world.',

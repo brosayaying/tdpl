@@ -17,9 +17,9 @@ export function TerminalWindow({
       className={`overflow-hidden rounded-sm border border-line bg-panel shadow-glow-sm ${className}`}
     >
       <div className="flex items-center gap-2 border-b border-line bg-panel-raised px-4 py-2.5">
-        <span className="h-2.5 w-2.5 rounded-full bg-danger/70" aria-hidden="true" />
-        <span className="h-2.5 w-2.5 rounded-full bg-amber/70" aria-hidden="true" />
-        <span className="h-2.5 w-2.5 rounded-full bg-phosphor/70" aria-hidden="true" />
+        <span className="h-2.5 w-2.5 rounded-full bg-danger/40" aria-hidden="true" />
+        <span className="h-2.5 w-2.5 rounded-full bg-amber/40" aria-hidden="true" />
+        <span className="h-2.5 w-2.5 rounded-full bg-phosphor/40" aria-hidden="true" />
         <span className="ml-3 truncate text-xs text-fog">{title}</span>
       </div>
       <div className="p-5 sm:p-7">{children}</div>
